@@ -2,16 +2,19 @@ import '@/styles/global.css';
 import { RootProvider } from 'fumadocs-ui/provider';
 import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
+import { I18nProvider } from 'fumadocs-ui/i18n';
 
 const inter = Inter({
   subsets: ['latin'],
 });
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({ children, params }: Readonly<{ children: ReactNode; params: { lang: string } }>) {
   return (
-    <html lang='en' className={inter.className} suppressHydrationWarning>
+    <html lang={params.lang} className={inter.className} suppressHydrationWarning>
       <body>
-        <RootProvider>{children}</RootProvider>
+        <I18nProvider locale={params.lang}>
+          <RootProvider>{children}</RootProvider>
+        </I18nProvider>
       </body>
     </html>
   );

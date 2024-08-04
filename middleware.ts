@@ -1,14 +1,12 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { defaultLanguage, languages } from '@/i18n';
+import { createI18nMiddleware } from 'fumadocs-core/middleware';
 
-export function middleware(req: NextRequest) {
-  if (req.nextUrl.pathname === '/docs') {
-    return NextResponse.redirect(new URL('/', req.url));
-  }
-
-  return NextResponse.next();
-}
+export default createI18nMiddleware({
+  languages,
+  defaultLanguage,
+  hideLocale: 'never',
+});
 
 export const config = {
-  matcher: '/docs',
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };

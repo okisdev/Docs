@@ -1,6 +1,6 @@
 import { DocsLayout } from 'fumadocs-ui/layout';
 import type { ReactNode } from 'react';
-import { docsOptions } from '../layout.config';
+import { docsOptions } from '@/app/layout.config';
 import { RootToggle } from 'fumadocs-ui/components/layout/root-toggle';
 import { projects } from '@/config/project';
 
