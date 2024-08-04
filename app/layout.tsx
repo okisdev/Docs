@@ -12,7 +12,19 @@ export default function Layout({ children, params }: Readonly<{ children: ReactN
   return (
     <html lang={params.lang} className={inter.className} suppressHydrationWarning>
       <body>
-        <I18nProvider locale={params.lang}>
+        <I18nProvider
+          locale={params.lang}
+          locales={[
+            {
+              name: 'English',
+              locale: 'en',
+            },
+            {
+              name: '简体中文',
+              locale: 'zh-CN',
+            },
+          ]}
+        >
           <RootProvider>{children}</RootProvider>
         </I18nProvider>
       </body>

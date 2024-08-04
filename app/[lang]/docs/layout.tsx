@@ -10,6 +10,7 @@ export default function Layout({ children }: Readonly<{ children: ReactNode }>) 
       sidebar={{
         banner: <RootToggle options={projects} />,
       }}
+      i18n
       {...docsOptions}
     >
       {children}

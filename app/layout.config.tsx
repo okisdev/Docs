@@ -4,8 +4,10 @@ import { pageTree } from '@/app/source';
 
 // shared configuration
 export const baseOptions: HomeLayoutProps = {
+  githubUrl: 'https://github.com/okisdev/docs',
   nav: {
     title: "okisdev's docs",
+    transparentMode: 'top',
   },
   links: [
     {
